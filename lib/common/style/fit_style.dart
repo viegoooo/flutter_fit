@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 ///颜色
 class FitColor {
 
+  static const MaterialColor themeColors = Colors.deepOrange;
   static const Color primaryColor = const Color(0xFF24292E);
   static const Color primaryLightColor = const Color(0xFF42464b);
   static const Color primaryDarkColor = const Color(0xFF121917);
@@ -95,6 +96,11 @@ class FitConstant {
   static const smallTextOrange = TextStyle(
     color: FitColor.textColorOrange,
     fontSize: smallTextSize,
+  );
+  static const smallTextOrangeBold = TextStyle(
+    color: FitColor.textColorOrange,
+    fontSize: smallTextSize,
+    fontWeight: FontWeight.w600,
   );
 
   static const smallText = TextStyle(
@@ -198,6 +204,11 @@ class FitConstant {
     color:FitColor.subTextColor,
     fontSize: normalTextSize,
   );
+  static const normalSubTextBold = TextStyle(
+    color:FitColor.subTextColor,
+    fontSize: normalTextSize,
+    fontWeight: FontWeight.w600,
+  );
 
   static const normalTextWhite = TextStyle(
     color: FitColor.textColorWhite,
@@ -208,7 +219,11 @@ class FitConstant {
     color: FitColor.textColorOrange,
     fontSize: normalTextSize,
   );
-
+  static const normalTextOrangeBold = TextStyle(
+    color: FitColor.textColorOrange,
+    fontSize: normalTextSize,
+    fontWeight: FontWeight.bold,
+  );
   static const normalTextMitWhiteBold = TextStyle(
     color: FitColor.miWhite,
     fontSize: normalTextSize,

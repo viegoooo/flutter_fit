@@ -252,7 +252,7 @@ class _MePageState extends State<MePage> {
                 Text(
                   "添加设备",
                   style: TextStyle(
-                      color: Colors.deepOrange,
+                      color: FitColor.themeColors,
                       fontWeight: FontWeight.bold,
                       fontSize: 16),
                   textAlign: TextAlign.end,

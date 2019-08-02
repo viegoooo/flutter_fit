@@ -356,10 +356,10 @@ class _HomePageState extends State<HomePage>
 
     _data = healthLists
         .map((f) => Container(
-              height: width / 3 - 8,
-              width: width / 3 - 8,
+              height: width / 3 - 4,
+              width: width / 3 - 4,
               key: Key(f._title),
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(4.0),
               child: Stack(
                 children: <Widget>[
                   AspectRatio(
