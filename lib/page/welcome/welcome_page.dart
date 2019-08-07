@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fit/page/main_page_container.dart';
+import 'package:flutter_fit/page/page_container_main.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
 

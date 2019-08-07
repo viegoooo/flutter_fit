@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_fit/page/login_or_register_page.dart';
-import 'package:flutter_fit/page/splash_page.dart';
-import 'package:flutter_fit/page/home_page.dart';
-import 'package:flutter_fit/page/welcome_page.dart';
-import 'package:amap_base_location/amap_base_location.dart';
-import 'package:flutter_fit/page/test.dart';
+import 'package:flutter_fit/page/welcome/login_or_register_page.dart';
+import 'package:flutter_fit/page/welcome/splash_page.dart';
+import 'package:flutter_fit/page/home/home_page.dart';
+import 'package:flutter_fit/page/sport/sports_history_page.dart';
+import 'package:flutter_fit/page/welcome/welcome_page.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
 
 ///程序入口
@@ -34,14 +33,14 @@ class MyApp extends StatelessWidget {
       ),
 
       ///程序的第一个界面，一般需要用Scaffold 包裹的 Material风格的widget
-//     home: Test(),
       home: SplashPage(),
-
+      //home: SportsHistoryPage(),
       routes: {
         '/home': (BuildContext context) => HomePage(),
         '/splash': (BuildContext context) => SplashPage(),
         '/welcome': (BuildContext context) => WelcomePage(),
         '/login': (BuildContext context) => LoginOrRegisterPage(),
+        '/history': (BuildContext context) => SportsHistoryPage(),
       },
 //      initialRoute: '/login',
     );

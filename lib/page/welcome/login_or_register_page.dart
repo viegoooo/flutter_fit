@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
-import 'package:flutter_fit/page/main_page_container.dart';
+import 'package:flutter_fit/page/page_container_main.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginOrRegisterPage extends StatefulWidget {

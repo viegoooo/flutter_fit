@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
-import 'package:flutter_fit/page/sports_page.dart';
-import 'package:flutter_fit/page/test.dart';
+import 'package:flutter_fit/page/sport/sports_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'home_page.dart';
-import 'me_page.dart';
+import 'package:flutter_fit/page/home/home_page.dart';
+import 'package:flutter_fit/page/me/me_page.dart';
 
 class MainPageContainer extends StatefulWidget {
   @override

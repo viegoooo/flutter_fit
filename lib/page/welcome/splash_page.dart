@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_or_register_page.dart';
+import 'package:flutter_fit/page/welcome/login_or_register_page.dart';
 
 /// WelcomePage 和 SplashPage 2选1
 class SplashPage extends StatefulWidget {

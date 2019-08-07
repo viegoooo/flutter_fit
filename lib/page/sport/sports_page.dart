@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
-import 'package:amap_base_location/amap_base_location.dart';
 
 /// 主要用到 TabBar 和 Page 的 联动 , 可参考  https://blog.csdn.net/weixin_33724059/article/details/88200232
 ///
