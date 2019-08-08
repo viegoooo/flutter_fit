@@ -5,8 +5,12 @@
 做此项目目的：初入flutter，熟悉各种Widget属性和常用package。
 
 ## 界面效果 
+**部分为滚动截图:**
+<br>
+<img src="./screen_shot/Screenshot_homepage.jpg"  width="25%" height="25%"/>
+<img src="./screen_shot/Screenshot_sportspage.jpg" width="25%" height="25%"/>
+<img src="./screen_shot/Screenshot_mepage.jpg"  width="25%" height="25%"/>
 
-| ![](./screen_shot/Screenshot_homepage.jpg)    |  ![](./screen_shot/Screenshot_sportspage.jpg)    |![](././screen_shot/Screenshot_mepage.jpg)   |
 
 #### 用到的package
 
