@@ -23,6 +23,7 @@ class _SplashPageState extends State<SplashPage>
     _animation.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         //动画结束后后跳转主界面
+
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => LoginOrRegisterPage()),
                 (route) => route == null);

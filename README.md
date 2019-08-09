@@ -16,7 +16,7 @@
 
 - [条形图   charts_flutter](https://github.com/google/charts)
 
-
+- [路由框架  fluro: ^1.5.1 ](https://github.com/theyakka/fluro)
 
 ## Getting Started
 

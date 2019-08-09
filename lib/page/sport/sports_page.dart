@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fit/common/route/fluro_navigator_utils.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
+import 'package:flutter_fit/page/sport/sports_history_page.dart';
+import 'package:flutter_fit/page/sport/sports_routers.dart';
 
 /// 主要用到 TabBar 和 Page 的 联动 , 可参考  https://blog.csdn.net/weixin_33724059/article/details/88200232
 ///
@@ -10,9 +13,12 @@ class SportsPage extends StatefulWidget {
 
 class _SportsPageState extends State<SportsPage>
     with SingleTickerProviderStateMixin {
-
   bool runningInHouse = false;
-  final List<String> _tabValues = ['跑步', '步行', '骑行',];
+  final List<String> _tabValues = [
+    '跑步',
+    '步行',
+    '骑行',
+  ];
   TabController tabController;
   PageController pageController = PageController(initialPage: 0);
 
@@ -58,7 +64,7 @@ class _SportsPageState extends State<SportsPage>
               Expanded(
                 child: Container(
 //                color: Colors.blue,
-                  padding: EdgeInsets.only(top: 12, bottom: 12,left: 48),
+                  padding: EdgeInsets.only(top: 12, bottom: 12, left: 48),
                   height: 60,
                   child: TabBar(
                     tabs: _tabValues.map((f) {
@@ -183,29 +189,37 @@ class _SportsPageState extends State<SportsPage>
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),
-          child: Column(
-            children: <Widget>[
-              Text(
-                "69.49",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 48),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    '累计跑步(公里)',
-                  ),
-                  Icon(
-                    Icons.keyboard_arrow_right,
-                    color: Colors.grey,
-                  ),
-                ],
-              ),
-            ],
+          child: GestureDetector(
+            onTap: () {
+              NavigatorUtils.push(context, SportsRouters.sportsHistoryPage);
+            },
+//          onTap: ()=>{
+//          Navigator.of(context).push(MaterialPageRoute(builder: (context) => SportsHistoryPage()))
+//          },
+            child: Column(
+              children: <Widget>[
+                Text(
+                  "69.49",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 48),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      '累计跑步(公里)',
+                    ),
+                    Icon(
+                      Icons.keyboard_arrow_right,
+                      color: Colors.grey,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         Padding(
@@ -393,36 +407,4 @@ class _SportsPageState extends State<SportsPage>
       ],
     );
   }
-
-
 }
-
-
-
-
-//  final _amapLocation = AMapLocation();
-//  var _result = '';
-//
-////初始化定位监听
-//  void _initLocation() async {
-//    _amapLocation.init();
-//
-//    final options = LocationClientOptions(
-//      isOnceLocation: false,
-//      locatingWithReGeocode: true,
-//    );
-//
-//    if (await Permissions.requestMapPermission()) {
-//      _amapLocation.startLocate(options).listen((_) => setState(() {
-//        _result =
-//        '坐标：${_.longitude}，${_.latitude} @ ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}';
-//        print('定位坐标为：$_result');
-//
-//      }));
-//    } else {
-//      setState(() {
-//        _result = "无定位权限";
-//        print('定位坐标为：$_result');
-//      });
-//    }
-//  }

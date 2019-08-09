@@ -24,7 +24,7 @@ class _MainPageContainerState extends State<MainPageContainer>
     MePage(),
   ];
 
-  var _pageController;
+  PageController _pageController;
 
   @override
   void initState() {
@@ -77,7 +77,8 @@ class _MainPageContainerState extends State<MainPageContainer>
 
   ///bottomNavigationBar item的点击事件 ,将其和 PageView 关联
   void _onItemTapped(int index) {
-    _pageController.animateToPage(index,
-        duration: const Duration(milliseconds: 300), curve: Curves.ease);
+//    _pageController.animateToPage(index,
+//        duration: const Duration(milliseconds: 300), curve: Curves.ease);
+    _pageController.jumpToPage(index);
   }
 }

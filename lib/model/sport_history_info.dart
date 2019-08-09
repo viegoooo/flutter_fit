@@ -2,44 +2,49 @@
 class SportMonthData{
 
   String  yearMonth;
-  List <SportDayData> data;
+  List <SportSingleData> data;
+  static List <SportSingleData> sportDataList;
   double totalKm;
   double totalKCal;
   int times;
-  SportMonthData(this.yearMonth, this.data, this.totalKm, this.totalKCal,this.times);
+  SportsType type;
+
+  SportMonthData(this.yearMonth, this.data, this.totalKm, this.totalKCal,this.times,{this.type});
+
 
 
   ///假数据
   static List<SportMonthData> createSampleData() {
     final sportData1 =[
-      SportDayData(3.69,"00:22:30",'6\'06\"','8/2'),
-      SportDayData(3.63,"00:22:10",'6\'06\"','8/1'),
+      SportSingleData(3.69,"00:22:30",'6\'06\"','8/2',SportsType.RUNNING),
+      SportSingleData(3.63,"00:22:10",'6\'06\"','8/1',SportsType.WALKING),
+      SportSingleData(3.63,"00:22:10",'6\'06\"','8/1',SportsType.RIDING),
     ];
     final sportData2 =[
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/31'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/30'),
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/29'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/28'),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/31',SportsType.RUNNING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/30',SportsType.RUNNING),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/29',SportsType.RUNNING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/28',SportsType.RUNNING),
 
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/27'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/26'),
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/25'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/24'),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/27',SportsType.WALKING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/26',SportsType.WALKING),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/25',SportsType.WALKING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/24',SportsType.WALKING),
 
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/23'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/22'),
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/21'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/19'),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/23',SportsType.WALKING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/22',SportsType.WALKING),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/21',SportsType.RIDING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/19',SportsType.RIDING),
 
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/18'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/17'),
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/16'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/15'),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/18',SportsType.RIDING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/17',SportsType.RIDING),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/16',SportsType.RIDING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/15',SportsType.RIDING),
 
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/14'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/13'),
-      SportDayData(3.67,"00:22:30",'6\'12\"','7/11'),
-      SportDayData(3.65,"00:22:10",'5\'56\"','7/9'),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/14',SportsType.SWIMMING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/13',SportsType.SWIMMING),
+      SportSingleData(3.67,"00:22:30",'6\'12\"','7/11',SportsType.SWIMMING),
+      SportSingleData(3.65,"00:22:10",'5\'56\"','7/9',SportsType.SWIMMING),
     ];
 
 
@@ -53,18 +58,19 @@ class SportMonthData{
 
 }
 
-class SportDayData{
+class SportSingleData{
 
   double km; //3.65
   int time; //22*60
   String speed;
   String timeStr;
   String date;
+  SportsType type;
 
-  SportDayData(this.km,this.timeStr,this.speed,this.date);
+  SportSingleData(this.km,this.timeStr,this.speed,this.date,this.type);
 
 
-  SportDayData.staple(this.km, this.time, this.date);
+  SportSingleData.staple(this.km, this.time, this.date);
 
   String getTimeStr(){
     int hour = (time/3600) as int;
@@ -79,4 +85,11 @@ class SportDayData{
     return '$speedMinute\'$speedSecond\"';
   }
 
+}
+
+enum SportsType{
+    RUNNING,
+    WALKING,
+    RIDING,
+    SWIMMING,
 }
