@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fit/common/route/fluro_navigator_utils.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
+import 'package:flutter_fit/page/me/me_routers.dart';
+import 'package:flutter_fit/page/sport/sports_routers.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MePage extends StatefulWidget {
@@ -103,7 +106,8 @@ class _MePageState extends State<MePage> {
     Widget _buildButtonColumn(IconData icon, String label, String routeName) {
       Color color = Colors.black45;
       return GestureDetector(
-        onTap: () => {Navigator.pushNamed(context, routeName)},
+        //onTap: () => {Navigator.pushNamed(context, routeName)},
+        onTap: ()=>NavigatorUtils.push(context, routeName),
         child: new Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +152,7 @@ class _MePageState extends State<MePage> {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          _buildButtonColumn(Icons.accessibility, "Info", "/login"),
+          _buildButtonColumn(Icons.accessibility, "Info", MeRouters.personalInformation),
           _buildButtonColumn(Icons.group, "group", "/login"),
           _buildButtonColumn(Icons.message, "message", "/login"),
           _buildButtonColumn(Icons.flag, "Goal", "/login"),
@@ -163,9 +167,9 @@ class _MePageState extends State<MePage> {
     final width = size.width;
 
     List<_RecordsCardMsg> recordsList = [
-      _RecordsCardMsg("运动记录", "所有运动", "/111", Color(0xFFFAF1EA)),
-      _RecordsCardMsg("成绩单", "累计与最佳", "/111", Color(0xFFEEF3F9)),
-      _RecordsCardMsg("周/月/年报", "阶段统计", "/111", Color(0xFFF5F0F6)),
+      _RecordsCardMsg("运动记录", "所有运动", SportsRouters.sportsHistoryPage, Color(0xFFFAF1EA)),
+      _RecordsCardMsg("成绩单", "累计与最佳",  SportsRouters.sportsHistoryPage, Color(0xFFEEF3F9)),
+      _RecordsCardMsg("周/月/年报", "阶段统计",  SportsRouters.sportsHistoryPage, Color(0xFFF5F0F6)),
     ];
 
     ///SliverChildBuilderDelegate 中的第一个参数
@@ -173,37 +177,40 @@ class _MePageState extends State<MePage> {
     _builder() {
       return (BuildContext context, int index) {
         //function
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Stack(
-            children: <Widget>[
-              AspectRatio(
-                aspectRatio: 1 / 1,
-                child: Material(
+        return GestureDetector(
+          onTap: ()=> NavigatorUtils.push(context, recordsList[index]._routeName),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Stack(
+              children: <Widget>[
+                AspectRatio(
+                  aspectRatio: 1 / 1,
+                  child: Material(
 //                    elevation: 4.0,
 //                    shadowColor: Colors.grey.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(12.0),
-                  color: recordsList[index]._cardColor,
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: recordsList[index]._cardColor,
+                  ),
                 ),
-              ),
-              Positioned(
-                top: 8,
-                left: 8,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      recordsList[index]._title,
-                      style: TextStyle(fontSize: 18, color: Colors.black54),
-                    ),
-                    Text(
-                      recordsList[index]._subTitle,
-                      style: TextStyle(fontSize: 12, color: Colors.black54),
-                    ),
-                  ],
+                Positioned(
+                  top: 8,
+                  left: 8,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        recordsList[index]._title,
+                        style: TextStyle(fontSize: 18, color: Colors.black54),
+                      ),
+                      Text(
+                        recordsList[index]._subTitle,
+                        style: TextStyle(fontSize: 12, color: Colors.black54),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       };

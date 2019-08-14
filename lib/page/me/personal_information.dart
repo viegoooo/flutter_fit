@@ -1,10 +1,22 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fit/common/route/fluro_navigator_utils.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
+import 'package:flutter_fit/page/me/me_routers.dart';
 import 'package:flutter_fit/widget/wheel/single_wheel_picker.dart';
 import 'package:flutter_fit/page/me/date_picker/flutter_datetime_picker.dart';
-/// AlertDialog
 
+///
+/// 此界面 使用的 widget 和package：
+/// [ListTile],
+/// [AlertDialog] 的使用，详情见 [_PersonalInfoPageState._buildGenderListTile] ,
+///
+/// 根据需求修改了[flutter_datetime_picker]package  源码地址： https://github.com/Realank/flutter_datetime_picker
+/// 修改完的代码放在了  lib/page/me/date_picker/ 下
+///
+/// 身高 和 体重 的 滑轮选择器[WheelPicker] 也是借鉴了 此package, 内部实现皆是 An iOS-styled picker.Widget [CupertinoPicker]
+///
+///
 class PersonalInfoPage extends StatefulWidget {
   @override
   _PersonalInfoPageState createState() => _PersonalInfoPageState();
@@ -53,9 +65,11 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
     );
   }
 
+  ///性别 Item
   _buildGenderListTile() {
     return ListTile(
       onTap: () => {
+        ///点击弹出 对话框
         showDialog(
             context: context,
             builder: (BuildContext buildContext) {
@@ -143,6 +157,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
 
   _buildInterestListTile() {
     return ListTile(
+      onTap: ()=>NavigatorUtils.push(context, MeRouters.interestAndAttention,transition: TransitionType.inFromRight),
       isThreeLine: false,
       title: Text("兴趣及关注"),
       trailing: Icon(Icons.keyboard_arrow_right),
@@ -153,6 +168,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   _showSelectGenderDialog() {
     print(" ----------------");
     return AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
       title: Text('性别'),
       ///RadioListTile 和 CheckBox 点击选择框以后 没有UI的切换 ,需要父控件是Stateful的控件。可以使用StatefulBuilder
       content: StatefulBuilder(builder: (context, StateSetter setState) {
