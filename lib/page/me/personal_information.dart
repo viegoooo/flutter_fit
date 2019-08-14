@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fit/common/route/fluro_navigator_utils.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
-import 'package:flutter_fit/widget/wheel/wheel_picker.dart';
+import 'package:flutter_fit/widget/wheel/single_wheel_picker.dart';
 /// AlertDialog
 
 class PersonalInfoPage extends StatefulWidget {
@@ -11,6 +11,8 @@ class PersonalInfoPage extends StatefulWidget {
 
 class _PersonalInfoPageState extends State<PersonalInfoPage> {
   String _newGender = '男';
+  int _heightValue = 178;
+  int _weightValue = 70;
 
   @override
   Widget build(BuildContext context) {
@@ -90,14 +92,18 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   _buildHeightListTile() {
     return ListTile(
       onTap:(){
-        WheelPicker.showWheelPicker(context);
+        WheelPicker.showWheelPickerByType(context,WheelType.HEIGHT,currentData:_heightValue,onConfirm: (height){
+          setState(() {
+            _heightValue = height;
+          });
+        });
       },
       isThreeLine: false,
       title: Text("身高"),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('178cm'),
+          Text('$_heightValue厘米'),
           Icon(Icons.keyboard_arrow_right),
         ],
       ),
@@ -106,12 +112,19 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
 
   _buildWeightListTile() {
     return ListTile(
+      onTap:(){
+        WheelPicker.showWheelPickerByType(context,WheelType.WEIGHT,currentData:_weightValue,onConfirm: (weight){
+          setState(() {
+            _weightValue = weight;
+          });
+        });
+      },
       isThreeLine: false,
       title: Text("体重"),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('78公斤'),
+          Text('$_weightValue公斤'),
           Icon(Icons.keyboard_arrow_right),
         ],
       ),
@@ -129,10 +142,8 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   /// 如何改变弹出的Dialog在屏幕中的位置？？
   _showSelectGenderDialog() {
     print(" ----------------");
-
     return AlertDialog(
       title: Text('性别'),
-
       ///RadioListTile 和 CheckBox 点击选择框以后 没有UI的切换 ,需要父控件是Stateful的控件。可以使用StatefulBuilder
       content: StatefulBuilder(builder: (context, StateSetter setState) {
         return Column(
@@ -147,10 +158,8 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
                   ///此SetState 是 AlertDialog UI 的刷新 （点击Item后选中提示图标的变化） 。
                   _newGender = value;
                   NavigatorUtils.goBack(context);
-
                   ///取消Dialog 和回退界面一样 需要调用 Navigator的pop方法
                   this.setState(() {});
-
                   ///此SetState 是Dialog 后面的PersonalInfoPage的更新
                 });
               },
@@ -185,7 +194,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
 
       actions: <Widget>[
         FlatButton(
-          child: Text('NO'),
+          child: Text('取消'),
           onPressed: () {
             NavigatorUtils.goBack(context);
           },

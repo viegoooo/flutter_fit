@@ -7,7 +7,7 @@ import 'package:flutter_fit/page/welcome/splash_page.dart';
 import 'package:flutter_fit/page/home/home_page.dart';
 import 'package:flutter_fit/page/sport/sports_history_page.dart';
 import 'package:flutter_fit/page/welcome/welcome_page.dart';
-import 'package:flutter_fit/widget/wheel/wheel_picker.dart';
+import 'package:flutter_fit/widget/wheel/single_wheel_picker.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
 import 'package:flutter_fit/common/route/fluro_navigator_utils.dart';
 ///程序入口
@@ -44,8 +44,8 @@ class MyApp extends StatelessWidget {
       ),
 
       ///程序的第一个界面，一般需要用Scaffold 包裹的 Material风格的widget
-      //home: SplashPage(),
-      home: PersonalInfoPage(),
+      home: SplashPage(),
+      //home: PersonalInfoPage(),
       onGenerateRoute: NavigatorUtils.mRouter.generator,
       //home: SportsHistoryPage(),
 //      routes: {
