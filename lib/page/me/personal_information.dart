@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fit/common/route/fluro_navigator_utils.dart';
 import 'package:flutter_fit/common/style/fit_style.dart';
 import 'package:flutter_fit/widget/wheel/single_wheel_picker.dart';
+import 'package:flutter_fit/page/me/date_picker/flutter_datetime_picker.dart';
 /// AlertDialog
 
 class PersonalInfoPage extends StatefulWidget {
@@ -13,6 +14,7 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
   String _newGender = '男';
   int _heightValue = 178;
   int _weightValue = 70;
+  DateTime birthDay = DateTime(1992,2,10);
 
   @override
   Widget build(BuildContext context) {
@@ -77,12 +79,20 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
 
   _buildBirthDayListTile() {
     return ListTile(
+      onTap: ()=>{
+        DatePicker.showDatePicker(context,currentTime: birthDay,onConfirm: (dataTime){
+          print("Config: ${dataTime.toUtc().toString()}");
+          setState(() {
+            birthDay = dataTime;
+          });
+        })
+      },
       isThreeLine: false,
       title: Text("出生日期"),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text('1992/02/10'),
+          Text('${birthDay.year}/${birthDay.month}/${birthDay.day}'),
           Icon(Icons.keyboard_arrow_right),
         ],
       ),

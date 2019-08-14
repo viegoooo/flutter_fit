@@ -44,8 +44,8 @@ class MyApp extends StatelessWidget {
       ),
 
       ///程序的第一个界面，一般需要用Scaffold 包裹的 Material风格的widget
-      home: SplashPage(),
-      //home: PersonalInfoPage(),
+//      home: SplashPage(),
+      home: PersonalInfoPage(),
       onGenerateRoute: NavigatorUtils.mRouter.generator,
       //home: SportsHistoryPage(),
 //      routes: {
