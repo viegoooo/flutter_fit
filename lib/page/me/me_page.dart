@@ -152,10 +152,10 @@ class _MePageState extends State<MePage> {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
+          _buildButtonColumn(Icons.flag, "Goal", MeRouters.goal),
           _buildButtonColumn(Icons.accessibility, "Info", MeRouters.personalInformation),
           _buildButtonColumn(Icons.group, "group", "/login"),
           _buildButtonColumn(Icons.message, "message", "/login"),
-          _buildButtonColumn(Icons.flag, "Goal", "/login"),
         ],
       ),
     );

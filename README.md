@@ -10,13 +10,22 @@
 <img src="./screen_shot/Screenshot_homepage.jpg"  width="25%" height="25%"/>
 <img src="./screen_shot/Screenshot_sportspage.jpg" width="25%" height="25%"/>
 <img src="./screen_shot/Screenshot_mepage.jpg"  width="25%" height="25%"/>
-
+<br>
+<img src="./screen_shot/Screenshot_goalpage.png"  width="25%" height="25%"/>
+<img src="./screen_shot/Screenshot_personal_interest.png"  width="25%" height="25%"/>
+<img src="./screen_shot/Screenshot_personal_info.png"  width="25%" height="25%"/>
+<br>
+<img src="./screen_shot/Screenshot_personal_gender.png"  width="25%" height="25%"/>
+<img src="./screen_shot/Screenshot_personal_height.png"  width="25%" height="25%"/>
+<img src="./screen_shot/Screenshot_personal_birth.png"  width="25%" height="25%"/>
 
 #### 用到的package
 
-- [条形图   charts_flutter](https://github.com/google/charts)
+- [条形图   charts_flutter: ^0.6.0](https://github.com/google/charts)
 
 - [路由框架  fluro: ^1.5.1 ](https://github.com/theyakka/fluro)
+
+- [日期滚轮选择器 基于flutter_datetime_picker: 1.2.6 做了修改](https://github.com/Realank/flutter_datetime_picker)
 
 ## Getting Started
 

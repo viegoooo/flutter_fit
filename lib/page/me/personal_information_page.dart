@@ -58,7 +58,6 @@ class _PersonalInfoPageState extends State<PersonalInfoPage> {
         icon: Icon(
           Icons.arrow_back,
           size: 24,
-          color: FitColor.mainTextColor,
         ),
       ),
       title: Text('个人资料'),
